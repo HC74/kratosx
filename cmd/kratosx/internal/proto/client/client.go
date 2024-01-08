@@ -10,7 +10,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/base"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/base"
 )
 
 // CmdClient represents the source command.

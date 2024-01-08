@@ -5,11 +5,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/change"
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/project"
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/proto"
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/run"
-	"github.com/HC74/kratos/cmd/kratos/v2/internal/upgrade"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/change"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/project"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/proto"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/run"
+	"github.com/HC74/kratosx/cmd/kratosx/v2/internal/upgrade"
 )
 
 // release is the current kratosx tool version.

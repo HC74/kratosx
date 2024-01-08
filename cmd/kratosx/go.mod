@@ -1,4 +1,4 @@
-module github.com/HC74/kratos/cmd/kratos/v2
+module github.com/HC74/kratosx/cmd/kratosx/v2
 
 go 1.20
 
