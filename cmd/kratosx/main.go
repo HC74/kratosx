@@ -12,10 +12,13 @@ import (
 	"github.com/HC74/kratos/cmd/kratos/v2/internal/upgrade"
 )
 
+// release is the current kratosx tool version.
+const release = "v1.0.0"
+
 var rootCmd = &cobra.Command{
-	Use:     "kratos",
-	Short:   "Kratos: An elegant toolkit for Go microservices.",
-	Long:    `Kratos: An elegant toolkit for Go microservices.`,
+	Use:     "kratosx",
+	Short:   "Kratosx: An elegant toolkit for Go microservices.",
+	Long:    `Kratosx: An elegant toolkit for Go microservices.`,
 	Version: release,
 }
 
