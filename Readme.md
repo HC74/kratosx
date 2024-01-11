@@ -19,7 +19,8 @@ make init 可帮你下载代码生成所需要的库及依赖
 go mod download / go mod tidy
 
 # 运行程序
-kratos run
+1. 使用 kratosx run的方式可运行项目，但需要把config目录放置的入口文件目录
+2. 使用IDE直接运行 cmd - project - main.go 文件
 ```
 
 ## 项目结构
