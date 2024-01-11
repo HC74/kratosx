@@ -13,7 +13,7 @@ import (
 )
 
 // release is the current kratosx tool version.
-const release = "v1.0.0"
+const release = "v1.0.3"
 
 var rootCmd = &cobra.Command{
 	Use:     "kratosx",
@@ -21,6 +21,8 @@ var rootCmd = &cobra.Command{
 	Long:    `Kratosx: An elegant toolkit for Go microservices.`,
 	Version: release,
 }
+
+var testFlag string
 
 func init() {
 	rootCmd.AddCommand(project.CmdNew)
