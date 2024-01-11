@@ -11,6 +11,10 @@ go install github.com/HC74/kratosx/cmd/kratosx/v2@latest
 kratos new project
 
 cd project
+
+# 如果你的电脑安装了make则运行
+make init 可帮你下载代码生成所需要的库及依赖
+
 # 拉取项目依赖
 go mod download / go mod tidy
 
