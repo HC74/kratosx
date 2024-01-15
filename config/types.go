@@ -7,6 +7,7 @@ type App struct {
 	Log      *Logger              // 日志配置
 	Logging  *Logging             // 日志白名单配置
 	Database map[string]*Database // 数据库配置
+	Redis    map[string]*Redis    // redis配置
 }
 
 // Server 服务配置

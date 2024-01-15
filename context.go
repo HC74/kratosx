@@ -5,8 +5,10 @@ import (
 	"github.com/HC74/kratosx/config"
 	"github.com/HC74/kratosx/core/db"
 	"github.com/HC74/kratosx/core/logger"
+	rds "github.com/HC74/kratosx/core/redis"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-redis/redis/v8"
 	"gorm.io/gorm"
 	"time"
 )
@@ -25,6 +27,7 @@ type Context interface {
 	Config() config.Config
 	Endpoint() []string
 	DB(name ...string) *gorm.DB
+	Redis(name ...string) *redis.Client
 
 	Deadline() (deadline time.Time, ok bool)
 	Done() <-chan struct{}
@@ -55,6 +58,11 @@ func (c *ctx) Ctx() context.Context {
 func (c *ctx) Logger() *log.Helper {
 	helper := logger.Helper()
 	return helper.WithContext(c)
+}
+
+// Redis 获取redis
+func (c *ctx) Redis(name ...string) *redis.Client {
+	return rds.Instance().Get(name...)
 }
 
 // DB 获取数据库

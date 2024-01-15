@@ -16,3 +16,12 @@ type Database struct {
 	DryRun        bool
 	SlowThreshold time.Duration // 慢sql阈值
 }
+
+// Redis Nosql数据库Redis
+type Redis struct {
+	Enable   bool   // 是否启用
+	Host     string // url
+	Username string // 用户名
+	Password string // 密码
+	DB       int    // DB库制定
+}

@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/go-kratos/kratos/contrib/log/zap/v2 v2.0.0-20240105030612-34d9666e0e1b
 	github.com/go-kratos/kratos/v2 v2.7.2
+	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gorilla/handlers v1.5.2
 	github.com/mitchellh/mapstructure v1.5.0
 	go.uber.org/zap v1.26.0
@@ -16,7 +17,9 @@ require (
 )
 
 require (
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-kratos/aegis v0.2.0 // indirect
