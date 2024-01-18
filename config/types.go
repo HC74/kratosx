@@ -8,6 +8,7 @@ type App struct {
 	Logging  *Logging             // 日志白名单配置
 	Database map[string]*Database // 数据库配置
 	Redis    map[string]*Redis    // redis配置
+	Jwt      *JWT                 // Jwt配置
 }
 
 // Server 服务配置
@@ -70,4 +71,14 @@ type Logger struct {
 		Compress  bool   // 是否要进行日志压缩，using gzip
 		LocalTime bool   // 是否使用本地的时间
 	}
+}
+
+// JWT jwt配置项
+type JWT struct {
+	Redis     string          // redis
+	Header    string          //
+	Secret    string          // 秘钥
+	Expire    time.Duration   // 过期时间
+	Renewal   time.Duration   // 续期时间
+	Whitelist map[string]bool // 白名单
 }

@@ -13,6 +13,8 @@ func New(conf config.Config) []middleware.Middleware {
 	mds := []middleware.Middleware{
 		recovery.Recovery(),
 		Logging(app.Logging),
+		JwtWhite(app.Jwt), // jwt白名单
+		JwtBlack(app.Jwt), // jwt校验
 		validate.Validator(),
 		metadata.Server(),
 	}
