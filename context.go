@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/HC74/kratosx/config"
 	"github.com/HC74/kratosx/core/db"
-	"github.com/HC74/kratosx/core/loader"
 	"github.com/HC74/kratosx/core/logger"
 	rds "github.com/HC74/kratosx/core/redis"
 	"github.com/go-kratos/kratos/v2"
@@ -29,7 +28,6 @@ type Context interface {
 	Endpoint() []string
 	DB(name ...string) *gorm.DB
 	Redis(name ...string) *redis.Client
-	Loader(name string) []byte
 
 	Deadline() (deadline time.Time, ok bool)
 	Done() <-chan struct{}
@@ -75,11 +73,6 @@ func (c *ctx) DB(name ...string) *gorm.DB {
 // Config 获取配置对象
 func (c *ctx) Config() config.Config {
 	return config.Instance()
-}
-
-// Loader 获加载器实例
-func (c *ctx) Loader(name string) []byte {
-	return loader.Instance().Get(name)
 }
 
 func (c *ctx) Deadline() (deadline time.Time, ok bool) {
