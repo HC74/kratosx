@@ -9,6 +9,7 @@ type App struct {
 	Database map[string]*Database // 数据库配置
 	Redis    map[string]*Redis    // redis配置
 	Jwt      *JWT                 // Jwt配置
+	Loader   map[string]string    // 文件load配置
 }
 
 // Server 服务配置

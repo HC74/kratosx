@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/HC74/kratosx/config"
 	"github.com/HC74/kratosx/core/db"
+	"github.com/HC74/kratosx/core/jwt"
+	"github.com/HC74/kratosx/core/loader"
 	"github.com/HC74/kratosx/core/logger"
 	rds "github.com/HC74/kratosx/core/redis"
 	"github.com/go-kratos/kratos/v2"
@@ -28,6 +30,8 @@ type Context interface {
 	Endpoint() []string
 	DB(name ...string) *gorm.DB
 	Redis(name ...string) *redis.Client
+	Loader(name string) []byte
+	JWT() jwt.Jwt
 
 	Deadline() (deadline time.Time, ok bool)
 	Done() <-chan struct{}
@@ -54,6 +58,10 @@ func (c *ctx) Ctx() context.Context {
 	return c.Context
 }
 
+func (c *ctx) Loader(name string) []byte {
+	return loader.Instance().Get(name)
+}
+
 // Logger 获取日志处理器
 func (c *ctx) Logger() *log.Helper {
 	helper := logger.Helper()
@@ -68,6 +76,11 @@ func (c *ctx) Redis(name ...string) *redis.Client {
 // DB 获取数据库
 func (c *ctx) DB(name ...string) *gorm.DB {
 	return db.Instance().Get(name...).WithContext(c.Ctx())
+}
+
+// JWT 获取令牌验证器
+func (c *ctx) JWT() jwt.Jwt {
+	return jwt.Instance()
 }
 
 // Config 获取配置对象

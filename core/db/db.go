@@ -81,6 +81,12 @@ func (d *db) createDB(name string, conf *config.Database) error {
 	sdb.SetMaxOpenConns(conf.MaxOpenConn)
 	sdb.SetMaxIdleConns(conf.MaxIdleConn)
 
+	err = sdb.Ping()
+
+	if err != nil {
+		return err
+	}
+
 	d.lock.Lock()
 	d.mapper[name] = client
 	d.key = name
